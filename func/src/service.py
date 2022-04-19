@@ -4,8 +4,8 @@ from etria_logger import Gladsheim
 import requests
 
 # Jormungandr
-from src.repository import RedisRepository
-from src.exceptions import ErrorToRequestZendeskApi, InvalidEndpointZendeskApi
+from func.src.repository import RedisRepository
+from func.src.exceptions import ErrorToRequestZendeskApi, InvalidEndpointZendeskApi
 
 # Standards
 from http import HTTPStatus

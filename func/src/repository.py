@@ -1,5 +1,5 @@
 # Jormungandr
-from src.infrastructure import RedisInfrastructure
+from func.src.infrastructure import RedisInfrastructure
 
 # Third party
 from decouple import config
