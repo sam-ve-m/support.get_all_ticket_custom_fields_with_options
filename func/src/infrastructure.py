@@ -2,10 +2,6 @@
 from decouple import config
 from etria_logger import Gladsheim
 from redis import from_url
-import requests
-
-# Jormungandr
-from src.exceptions import ErrorToGetRedisClient
 
 
 class RedisInfrastructure:
@@ -22,5 +18,5 @@ class RedisInfrastructure:
                 Gladsheim.error(
                     message=f"RedisInfrastructure::get_client::Error on client connection for the giving url {url}: {ex}",
                     error=ex)
-                raise ErrorToGetRedisClient
+                raise ex
         return cls.redis

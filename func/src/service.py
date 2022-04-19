@@ -7,6 +7,9 @@ import requests
 from src.repository import RedisRepository
 from src.exceptions import ErrorToRequestZendeskApi, InvalidEndpointZendeskApi
 
+# Standards
+from http import HTTPStatus
+
 
 def get_all_custom_fields() -> dict:
     redis_custom_fields = RedisRepository.get()
@@ -24,13 +27,15 @@ def __request_zendesk_custom_fields() -> dict:
     try:
         zendesk_ticket_custom_fields = requests.get(config('ZENDESK_TICKET_CUSTOM_FIELDS_API_URL'),
                                                     auth=(config('ZENDESK_LOGIN'), config('ZENDESK_PASSWORD')))
-        if zendesk_ticket_custom_fields.status_code == 200:
-            return zendesk_ticket_custom_fields.json()
-        raise InvalidEndpointZendeskApi
+        status_code = zendesk_ticket_custom_fields.status_code
     except Exception as ex:
-        message = f'Jormungandr::get_all_custom_fields::__request_zendesk_custom_fields::exception::{str(ex)}'
+        message = f'Jormungandr::get_all_custom_fields::__request_zendesk_custom_fields:: error to get zendesk custom' \
+                  f'fields'
         Gladsheim.error(error=ex, message=message)
         raise ErrorToRequestZendeskApi
+    if status_code == HTTPStatus.OK.value:
+        return zendesk_ticket_custom_fields.json()
+    raise InvalidEndpointZendeskApi
 
 
 def __treatment_ticket_custom_fields(ticket_custom_fields: dict) -> dict:
