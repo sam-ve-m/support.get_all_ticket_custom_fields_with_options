@@ -1,14 +1,14 @@
-#Third party
-from decouple import config
-import pytest
-
-# Standards
-from unittest.mock import patch
-
 # Jormungandr
 from func.src.service import __request_zendesk_custom_fields, __treatment_ticket_custom_fields, get_all_custom_fields
 from func.src.exceptions import InvalidEndpointZendeskApi, ErrorToRequestZendeskApi
 from .stubs import StubRequestObj, ticket_custom_fields, treatment_ticket_custom_fields
+
+# Standards
+from unittest.mock import patch
+
+# Third party
+from decouple import config
+import pytest
 
 
 @patch('func.src.service.requests.get', return_value=StubRequestObj(status_code=200))

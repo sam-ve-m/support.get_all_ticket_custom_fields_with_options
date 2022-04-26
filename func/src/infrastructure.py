@@ -16,7 +16,8 @@ class RedisInfrastructure:
                 return cls.redis
             except Exception as ex:
                 Gladsheim.error(
-                    message=f"RedisInfrastructure::get_client::Error on client connection for the giving url {url}: {ex}",
-                    error=ex)
+                    error=ex,
+                    message=f"RedisInfrastructure::get_client::Error on client connection for the giving url {url}",
+                )
                 raise ex
         return cls.redis
