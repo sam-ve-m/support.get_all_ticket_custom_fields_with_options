@@ -1,0 +1,55 @@
+include:
+- ./func/*
+kind: ArchiveUploadSpec
+name: func-Fsq0
+
+---
+apiVersion: fission.io/v1
+kind: Package
+metadata:
+  creationTimestamp: null
+  name: get-custom-fields-fn-5b4e393b-1161-4843-b13b-d6294bd5b3c6
+  namespace: default
+spec:
+  deployment:
+    checksum: {}
+  environment:
+    name: get-custom-fields-env
+    namespace: default
+  source:
+    checksum: {}
+    type: url
+    url: archive://func-Fsq0
+status:
+  buildstatus: pending
+  lastUpdateTimestamp: "2022-07-01T21:26:08Z"
+
+---
+apiVersion: fission.io/v1
+kind: Function
+metadata:
+  creationTimestamp: null
+  name: get-custom-fields-fn
+  namespace: default
+spec:
+  InvokeStrategy:
+    ExecutionStrategy:
+      ExecutorType: poolmgr
+      MaxScale: 0
+      MinScale: 0
+      SpecializationTimeout: 120
+      TargetCPUPercent: 0
+    StrategyType: execution
+  concurrency: 500
+  environment:
+    name: get-custom-fields-env
+    namespace: default
+  functionTimeout: 60
+  idletimeout: 120
+  package:
+    functionName: main.get_all_ticket_custom_fields
+    packageref:
+      name: get-custom-fields-fn-5b4e393b-1161-4843-b13b-d6294bd5b3c6
+      namespace: default
+  requestsPerPod: 1
+  resources: {}

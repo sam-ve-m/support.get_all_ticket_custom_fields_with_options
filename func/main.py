@@ -26,7 +26,7 @@ def get_all_ticket_custom_fields():
                 }
             ),
             mimetype="application/json",
-            status=HTTPStatus.OK.value,
+            status=HTTPStatus.OK,
         )
         return response
 
@@ -42,7 +42,7 @@ def get_all_ticket_custom_fields():
                 }
             ),
             mimetype="application/json",
-            status=HTTPStatus.INTERNAL_SERVER_ERROR.value,
+            status=HTTPStatus.INTERNAL_SERVER_ERROR,
         )
         return response
 
@@ -58,7 +58,7 @@ def get_all_ticket_custom_fields():
                 }
             ),
             mimetype="application/json",
-            status=HTTPStatus.INTERNAL_SERVER_ERROR.value,
+            status=HTTPStatus.INTERNAL_SERVER_ERROR,
         )
         return response
 
@@ -74,6 +74,6 @@ def get_all_ticket_custom_fields():
                 }
             ),
             mimetype="application/json",
-            status=HTTPStatus.INTERNAL_SERVER_ERROR.value,
+            status=HTTPStatus.INTERNAL_SERVER_ERROR,
         )
         return response

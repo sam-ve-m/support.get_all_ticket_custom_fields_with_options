@@ -1,0 +1,44 @@
+apiVersion: fission.io/v1
+kind: Environment
+metadata:
+  creationTimestamp: null
+  name: get-custom-fields-env
+  namespace: default
+spec:
+  builder:
+    command: build
+    container:
+      name: ""
+      resources: {}
+    image: nexus.sigame.com.br/fission-builder-3.8:0.0.1
+  imagepullsecret: ""
+  keeparchive: false
+  poolsize: 3
+  resources: {}
+  runtime:
+    container:
+      name: ""
+      resources: {}
+    image: nexus.sigame.com.br/python-env-3.8:0.0.5
+    podspec:
+      containers:
+        - name: get-custom-fields-env
+          env:
+            - name: ROOT_LOG_LEVEL
+              value: "INFO"
+            - name: ETRIA_LOG_LEVEL
+              value: "INFO"
+            - name: REDIS_KEY_CUSTOM_FIELDS
+              value: "JORMUNGANDR::CUSTOM_FIELDS"
+            - name: REDIS_DATA_EXPIRATION_IN_SECONDS
+              value: "3600"
+            - name: REDIS_HOST
+              value: "redis://bnd:jkl321pqr@172.30.11.235:6379"
+            - name: ZENDESK_LOGIN
+              value: "Tech@lionx.com.br"
+            - name: ZENDESK_PASSWORD
+              value: "bezfiz-dyhqu3-noqmEg"
+            - name: ZENDESK_TICKET_CUSTOM_FIELDS_API_URL
+              value: "https://sigame.zendesk.com/api/v2/ticket_fields"
+
+  version: 2
