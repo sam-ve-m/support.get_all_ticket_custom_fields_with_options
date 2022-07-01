@@ -39,7 +39,7 @@ def __request_zendesk_custom_fields() -> dict:
         )
         Gladsheim.error(error=ex, message=message)
         raise ErrorToRequestZendeskApi
-    if status_code == HTTPStatus.OK.value:
+    if status_code == HTTPStatus.OK:
         return zendesk_ticket_custom_fields.json()
     raise InvalidEndpointZendeskApi
 
