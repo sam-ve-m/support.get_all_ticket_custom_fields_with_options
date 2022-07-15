@@ -10,10 +10,9 @@ class RedisInfrastructure:
     @classmethod
     def get_client(cls):
         if cls.redis is None:
+            url = config("REDIS_HOST")
             try:
-                url = config("REDIS_HOST")
                 cls.redis = from_url(url, max_connections=10)
-                return cls.redis
             except Exception as ex:
                 Gladsheim.error(
                     error=ex,

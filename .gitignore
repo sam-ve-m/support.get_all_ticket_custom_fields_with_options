@@ -47,8 +47,3 @@ Thumbs.db
 *.flv
 *.mov
 *.wmv
-
-
-.env
-
-func/requirements.txt

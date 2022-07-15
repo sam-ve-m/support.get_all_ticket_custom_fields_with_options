@@ -11,9 +11,9 @@ spec:
   http:
   - match:
     - uri:
-        prefix: /router/get-custom-fields
+        prefix: /router/support/get-custom-fields
     rewrite:
-      uri: /get-custom-fields
+      uri: /support/get-custom-fields
     route:
     - destination:
         host: router.fission.svc.cluster.local
