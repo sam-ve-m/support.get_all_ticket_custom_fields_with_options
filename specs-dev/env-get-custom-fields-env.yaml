@@ -33,11 +33,11 @@ spec:
             - name: REDIS_DATA_EXPIRATION_IN_SECONDS
               value: "3600"
             - name: REDIS_HOST
-              value: "redis://bnd:jkl321pqr@172.30.11.235:6379"
+              value: "redis://jormungandr:oUjqwnmdDSA391dja@172.30.11.235:6379"
             - name: ZENDESK_LOGIN
               value: "Tech@lionx.com.br"
             - name: ZENDESK_PASSWORD
               value: "bezfiz-dyhqu3-noqmEg"
             - name: ZENDESK_TICKET_CUSTOM_FIELDS_API_URL
-              value: "https://sigame.zendesk.com/api/v2/ticket_fields"
+              value: "https://ligainvest.zendesk.com/api/v2/ticket_fields"
   version: 2
