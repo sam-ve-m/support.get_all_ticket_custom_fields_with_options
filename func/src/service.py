@@ -59,5 +59,3 @@ def __treatment_ticket_custom_fields(ticket_custom_fields: dict) -> dict:
             treatment_custom_field.update(custom_field_options=options)
             ticket_custom_fields_treatment["custom_fields"].append(treatment_custom_field)
     return ticket_custom_fields_treatment
-
-

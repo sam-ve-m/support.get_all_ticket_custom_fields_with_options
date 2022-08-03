@@ -14,10 +14,10 @@ spec:
   ingressconfig:
     annotations: null
     host: '*'
-    path: /get-custom-fields
+    path: /support/get-custom-fields
     tls: ""
   method: ""
   methods:
   - GET
   prefix: ""
-  relativeurl: /get-custom-fields
+  relativeurl: /support/get-custom-fields
